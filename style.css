@@ -1,0 +1,181 @@
+:root {
+    --principal-color: #A9927D;
+    --secondary-color: #5E503F;
+    --header-bc: #0A0908;
+    --aside-bar: #22333B;
+    --background: #F2F4F3;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html {
+    font-size: 62.5%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    grid-template-rows: 60px 1fr;
+    grid-template-areas: "header header" "aside-bar movies";
+}
+
+.header {
+    grid-area: header;
+    padding: 0 20px;
+    background-color: var(--header-bc);
+    color: var(--principal-color);
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-areas: "logo search user";
+    gap: 10px;
+}
+.logo {
+    font-size: 3rem;
+    font-weight: 800;
+    align-self: center;
+    grid-area: logo;
+}
+.logo span {
+    margin-left: 5px;
+}
+.search {
+    width: 100%;
+    justify-self: center;
+    align-self: center;
+    grid-area: search;
+}
+.search input {
+    height: 40px;
+    width: 100%;
+    padding: 6px;
+    font-size: 1.6rem;
+    background-color: #F2F4F3;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+.user {
+    font-weight: 600;
+    font-size: 1.6rem;
+    grid-area: user;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.user-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 5px 0 10px;
+}
+
+
+.aside-bar {
+    padding-top: 10px;
+    color: var(--background);
+    background-color: var(--secondary-color);
+    font-size: 1.4rem;
+    grid-area: aside-bar;
+    display: grid;
+    grid-template-columns: 90px;
+    grid-template-rows: repeat(3, auto) 1fr 60px;
+    grid-template-areas: "home" "trending" "likes" "." "settings";
+}
+.aside-bar div{
+    padding-bottom: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.aside-bar a{
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+}
+.aside-bar i {
+    font-size: 2.3rem;
+}
+.home {
+    grid-area: home;
+    padding-top: 20px;
+}
+.trending {
+    grid-area: trending;
+}
+.likes {
+    grid-area: likes;
+}
+.settings {
+    grid-area: settings;
+    padding-bottom: 40px;
+}
+
+
+.movies {
+    padding: 20px 20px 0 20px;
+    color: var(--aside-bar);
+    display: grid;
+    grid-area: movies;
+    background-color: var(--background);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: "now-on-theathers" "critically-acclaimed" "you-cant-lose-this";
+    gap: 10px;
+    overflow: auto;
+}
+.now-on-theathers {
+    grid-area: now-on-theathers;
+}
+.critically-acclaimed {
+    grid-area: critically-acclaimed;
+}
+.you-cant-lose-this {
+    grid-area: you-cant-lose-this;
+}
+.movies h2 {
+    padding-bottom: 10px;
+    font-size: 2rem;
+}
+.movies-container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+
+    grid-template-areas: "one two three";
+}
+.movies-container .movie:nth-of-type(1) {
+    grid-area: one;
+}
+.movies-container .movie:nth-of-type(2) {
+    grid-area: two;
+}
+.movies-container .movie:nth-of-type(3) {
+    grid-area: three;
+}
+.movie {
+    position: relative;
+}
+.movie-cover {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.movie-details {
+    position: absolute;
+    background-color: ivory;
+    border-radius: 0 0 10px 10px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 50%;
+    display: none;
+}
